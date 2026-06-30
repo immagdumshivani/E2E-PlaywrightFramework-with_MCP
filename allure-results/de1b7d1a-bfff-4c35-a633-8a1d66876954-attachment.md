@@ -1,0 +1,116 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: setup\auth.setup.ts >> authenticate user
+- Location: tests\setup\auth.setup.ts:11:6
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: locator('text=Logout')
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for locator('text=Logout')
+
+```
+
+```yaml
+- banner:
+  - link "Website for automation practice":
+    - /url: /
+    - img "Website for automation practice"
+  - list:
+    - listitem:
+      - link " Home":
+        - /url: /
+    - listitem:
+      - link " Products":
+        - /url: /products
+    - listitem:
+      - link " Cart":
+        - /url: /view_cart
+    - listitem:
+      - link " Signup / Login":
+        - /url: /login
+    - listitem:
+      - link " Test Cases":
+        - /url: /test_cases
+    - listitem:
+      - link " API Testing":
+        - /url: /api_list
+    - listitem:
+      - link " Video Tutorials":
+        - /url: https://www.youtube.com/c/AutomationExercise
+    - listitem:
+      - link " Contact us":
+        - /url: /contact_us
+- heading "Login to your account" [level=2]
+- textbox "Email Address": manda
+- textbox "Password": Password@123
+- button "Login"
+- heading "OR" [level=2]
+- heading "New User Signup!" [level=2]
+- textbox "Name"
+- textbox "Email Address"
+- button "Signup"
+- contentinfo:
+  - heading "Subscription" [level=2]
+  - textbox "Your email address"
+  - button ""
+  - paragraph: Get the most recent updates from our site and be updated your self...
+  - paragraph: Copyright © 2021 All rights reserved
+- insertion:
+  - heading "These are topics related to the article that might interest you" [level=2]: Discover more
+  - link "Website design templates"
+  - link "Test case management"
+  - link "API testing tools"
+```
+
+# Test source
+
+```ts
+  1  | import { test as setup, expect } from "@playwright/test";
+  2  | 
+  3  | import { LoginPage } from "../../src/pages/auth/LoginPage";
+  4  | 
+  5  | import { ENV_CONFIG } from "../../src/config/env.config";
+  6  | 
+  7  | import { CONSTANTS } from "../../src/config/constants";
+  8  | 
+  9  | const authFile = CONSTANTS.AUTH_FILE;
+  10 | 
+  11 | setup("authenticate user", async ({ page }) => {
+  12 |   const loginPage = new LoginPage(page);
+  13 | 
+  14 |   // Navigate to login page
+  15 | 
+  16 |   await page.goto(`${ENV_CONFIG.BASE_URL}/login`);
+  17 | 
+  18 |   // Login
+  19 | 
+  20 |   await loginPage.login(ENV_CONFIG.USERNAME, ENV_CONFIG.PASSWORD);
+  21 | 
+  22 |   // Verify login success
+  23 | 
+> 24 |   await expect(page.locator("text=Logout")).toBeVisible();
+     |                                             ^ Error: expect(locator).toBeVisible() failed
+  25 | 
+  26 |   // Save session
+  27 | 
+  28 |   await page.context().storageState({
+  29 |     path: authFile,
+  30 |   });
+  31 | });
+  32 | 
+```

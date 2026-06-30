@@ -1,0 +1,40 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.0.1",
+    "allure-playwright": "^3.10.2",
+    "cross-env": "^10.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "winston": "^3.19.0"
+  },
+  "imports": {
+    "#pages/*": "./src/pages/*",
+    "#fixtures/*": "./src/fixtures/*",
+    "#config/*": "./src/config/*",
+    "#utils/*": "./src/utils/*"
+  },
+  "scripts": {
+
+    "test":
+    "playwright test -c config/playwright.config.ts",
+
+    "test:headed":
+    "playwright test --headed -c config/playwright.config.ts",
+
+    "test:auth":
+    "playwright test tests/setup/auth.setup.ts --headed -c config/playwright.config.ts"
+
+  }
+
+}
