@@ -1,5 +1,4 @@
 # E2E-PlaywrightFramework-with_MCP
-# E2E Playwright Framework with MCP
 
 A scalable end-to-end test automation framework built using **Playwright** with **MCP (Model Context Protocol) integration**, designed to demonstrate modern AI-assisted automation practices, maintainable test architecture, and real-world enterprise testing patterns.
 
