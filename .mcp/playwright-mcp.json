@@ -1,0 +1,5 @@
+{
+  "browser": "chromium",
+  "baseURL": "https://automationexercise.com",
+  "storageState": "storage/auth.json"
+}

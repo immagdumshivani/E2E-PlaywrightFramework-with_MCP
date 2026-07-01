@@ -11,7 +11,7 @@ setup("authenticate user", async ({ page }) => {
 
   await page.goto(`${ENV_CONFIG.BASE_URL}/login`);
 
-  await loginPage.login(ENV_CONFIG.USERNAME, ENV_CONFIG.PASSWORD);
+  await loginPage.login(ENV_CONFIG.LOGIN_USERNAME, ENV_CONFIG.LOGIN_PASSWORD);
 
   await expect(page.locator("a:has-text('Logged in as')")).toBeVisible();
 

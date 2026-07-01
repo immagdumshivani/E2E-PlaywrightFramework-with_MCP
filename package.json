@@ -3,14 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test -c config/playwright.config.ts",
+    "test:headed": "playwright test --headed -c config/playwright.config.ts",
+    "test:auth": "playwright test tests/setup/auth.setup.ts --headed -c config/playwright.config.ts",
+    "mcp": "playwright-mcp --config .mcp/playwright-mcp.json"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@playwright/mcp": "^0.0.77",
     "@playwright/test": "^1.61.1",
-    "@types/node": "^26.0.1",
+    "@types/node": "^26.1.0",
     "allure-playwright": "^3.10.2",
     "cross-env": "^10.1.0"
   },
@@ -23,18 +29,5 @@
     "#fixtures/*": "./src/fixtures/*",
     "#config/*": "./src/config/*",
     "#utils/*": "./src/utils/*"
-  },
-  "scripts": {
-
-    "test":
-    "playwright test -c config/playwright.config.ts",
-
-    "test:headed":
-    "playwright test --headed -c config/playwright.config.ts",
-
-    "test:auth":
-    "playwright test tests/setup/auth.setup.ts --headed -c config/playwright.config.ts"
-
   }
-
 }
