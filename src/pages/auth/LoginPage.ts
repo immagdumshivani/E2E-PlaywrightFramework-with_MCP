@@ -9,7 +9,7 @@ export class LoginPage extends BasePage {
 
     await this.click(LoginLocators.loginButton);
 
-    await this.page.waitForLoadState("networkidle");
+    // await this.page.waitForLoadState("networkidle");
   }
 
   async verifyLogin() {

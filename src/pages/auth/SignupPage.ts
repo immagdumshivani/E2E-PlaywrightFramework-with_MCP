@@ -12,7 +12,7 @@ export class SignupPage extends BasePage {
 
     await this.click(SignupLocators.signupButton);
 
-    await this.page.waitForLoadState();
+    await this.page.waitForLoadState("networkidle");
 
     await this.checkBox(SignupLocators.title);
 

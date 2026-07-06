@@ -4,7 +4,7 @@ test("Validate product list on the Products page", async ({
   page,
   productPage,
 }) => {
-  await page.goto("/products");
+  await page.goto("/");
   await productPage.openProductsPage();
 
   expect(await productPage.isProductsPageVisible()).toBeTruthy();

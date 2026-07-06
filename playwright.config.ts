@@ -61,7 +61,8 @@ export default defineConfig({
 
     {
       name: "guest",
-      testMatch: "**/signup.spec.ts",
+      testDir: "./tests",
+      testMatch: "**/*.spec.ts",
       use: {
         ...devices["Desktop Chrome"],
 
@@ -73,6 +74,11 @@ export default defineConfig({
           height: 1080,
         },
       },
+    },
+
+    {
+      name: "api",
+      testMatch: "**/api/**/*.spec.ts",
     },
 
     // {
