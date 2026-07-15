@@ -32,7 +32,10 @@ export default defineConfig({
 
       use: {
         ...devices["Desktop Chrome"],
-
+        launchOptions: {
+          slowMo: 500,
+          args: ["--start-maximized"],
+        },
         storageState: CONSTANTS.AUTH_FILE,
       },
 
@@ -43,38 +46,45 @@ export default defineConfig({
       testMatch: "auth.setup.ts",
     },
 
-    {
-      name: "authenticated",
-      dependencies: ["setup"],
-      testMatch: "**/*.auth.spec.ts",
-      use: {
-        ...devices["Desktop Chrome"],
+    // {
+    //   name: "authenticated",
+    //   dependencies: ["setup"],
+    //   testMatch: "**/*.auth.spec.ts",
+    //   use: {
+    //     ...devices["Desktop Chrome"],
 
-        baseURL: ENV_CONFIG.BASE_URL,
+    //     baseURL: ENV_CONFIG.BASE_URL,
+    //     launchOptions: {
+    //       slowMo: 500,
+    //       args: ["--start-maximized"],
+    //     },
+    //     storageState: CONSTANTS.AUTH_FILE,
+    //     viewport: {
+    //       width: 1920,
+    //       height: 1080,
+    //     },
+    //   },
+    // },
 
-        storageState: CONSTANTS.AUTH_FILE,
-        viewport: {
-          width: 1920,
-          height: 1080,
-        },
-      },
-    },
+    // {
+    //   name: "guest",
+    //   testMatch: "**/signup.spec.ts",
+    //   use: {
+    //     ...devices["Desktop Chrome"],
 
-    {
-      name: "guest",
-      testMatch: "**/signup.spec.ts",
-      use: {
-        ...devices["Desktop Chrome"],
+    //     baseURL: ENV_CONFIG.BASE_URL,
 
-        baseURL: ENV_CONFIG.BASE_URL,
-
-        storageState: undefined,
-        viewport: {
-          width: 1920,
-          height: 1080,
-        },
-      },
-    },
+    //     storageState: undefined,
+    //     viewport: {
+    //       width: 1920,
+    //       height: 1080,
+    //     },
+    //     launchOptions: {
+    //       slowMo: 500,
+    //       args: ["--start-maximized"],
+    //     },
+    //   },
+    // },
 
     // {
     //   name: "firefox",

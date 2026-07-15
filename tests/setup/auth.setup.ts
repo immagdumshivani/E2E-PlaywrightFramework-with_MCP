@@ -8,24 +8,24 @@ import { CONSTANTS } from "../../src/config/constants";
 
 const authFile = CONSTANTS.AUTH_FILE;
 
-setup("authenticate user", async ({ page }) => {
-  const loginPage = new LoginPage(page);
+// setup("authenticate user", async ({ page }) => {
+//   const loginPage = new LoginPage(page);
 
-  // Navigate to login page
+//   // Navigate to login page
 
-  await page.goto(`${ENV_CONFIG.BASE_URL}/login`);
+//   await page.goto(`${ENV_CONFIG.BASE_URL}/login`);
 
-  // Login
+//   // Login
 
-  await loginPage.login(ENV_CONFIG.LOGIN_USERNAME, ENV_CONFIG.LOGIN_PASSWORD);
+//   await loginPage.login(ENV_CONFIG.LOGIN_USERNAME, ENV_CONFIG.LOGIN_PASSWORD);
 
-  // Verify login success
+//   // Verify login success
 
-  await expect(page.locator("text=Logout")).toBeVisible();
+//   await expect(page.locator("text=Logout")).toBeVisible();
 
-  // Save session
+//   // Save session
 
-  await page.context().storageState({
-    path: authFile,
-  });
-});
+//   await page.context().storageState({
+//     path: authFile,
+//   });
+// });

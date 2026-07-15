@@ -1,15 +1,11 @@
-import dotenv from "dotenv";
-
-dotenv.config({
-  path: `.env.${process.env.ENV || "qa"}`,
-});
-
 export const ENV_CONFIG = {
-  BASE_URL: process.env.BASE_URL!,
+  ENV: process.env.ENV!,
+
+  AUTOMATION_EXERCISE_URL: process.env.AUTOMATION_EXERCISE_URL!,
+
+  PRACTICE_URL: process.env.PRACTICE_URL!,
 
   USERNAME: process.env.USERNAME!,
 
   PASSWORD: process.env.PASSWORD!,
-
-  ENV: process.env.ENV,
 };
