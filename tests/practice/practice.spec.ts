@@ -1,4 +1,5 @@
 import { test, expect } from "playwright/test";
+import path from "path";
 
 test.beforeEach(async ({ page }) => {
   await page.goto(
@@ -134,4 +135,14 @@ test("double click and verify the copied test in input field 2 ", async ({
 
   const text2 = await page.locator("#field2").textContent();
   await expect(text2).toBe(text);
+});
+
+test("FILE CHOOSER UPLOAD FILE", async ({ page }) => {
+  console.log(__dirname);
+  page
+    .locator("#singleFileInput")
+    .setInputFiles(path.join("C:/Users/manda/Downloads/1.png"));
+  await page.getByRole("button", { name: "Upload Single File" }).click();
+
+  await expect(page.locator("#singleFileStatus")).toContainText("1.png");
 });
