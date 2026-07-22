@@ -23,9 +23,13 @@
     "cross-env": "^10.1.0"
   },
   "dependencies": {
+    "@google/genai": "^2.13.0",
     "ajv": "^8.20.0",
     "dotenv": "^17.4.2",
-    "winston": "^3.19.0"
+    "openai": "^6.48.0",
+    "uuid": "^14.0.1",
+    "winston": "^3.19.0",
+    "zod": "^4.4.3"
   },
   "imports": {
     "#pages/*": "./src/pages/*",
